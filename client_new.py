@@ -79,7 +79,6 @@ class Client:
                     magic_cookie, message_type, total_segments_recv, segment_number = struct.unpack("!IBQQ", data[:21])
                     if magic_cookie == MAGIC_COOKIE and message_type == MESSAGE_TYPE_PAYLOAD:
                         received_segments.add(segment_number)
-                        print(f"{Colors.OKGREEN}UDP Received segment {segment_number}/{total_segments_recv}{Colors.ENDC}")
                 except socket.timeout:
                     print(f"{Colors.WARNING}UDP UDP receive timed out{Colors.ENDC}")
                     break
