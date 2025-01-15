@@ -88,9 +88,9 @@ class Client:
             bytes_received = len(received_segments) * 1024
             speed = (bytes_received * 8) / duration if duration > 0 else 0  # bits per second
             packet_loss = 100 - (len(received_segments) / total_segments * 100) if total_segments > 0 else 0
-            print(f"{Colors.OKGREEN}[UDP] Transfer #{transfer_id} finished, total time: {duration:.2f}s, speed: {speed:.2f} bits/sec, packet loss: {packet_loss:.2f}%{Colors.ENDC}")
+            print(f"{Colors.OKGREEN}UDP Transfer #{transfer_id} finished, total time: {duration:.2f}s, speed: {speed:.2f} bits/sec, packet loss: {packet_loss:.2f}%{Colors.ENDC}")
         except Exception as e:
-            print(f"{Colors.FAIL}[UDP] Transfer #{transfer_id} error: {e}{Colors.ENDC}")
+            print(f"{Colors.FAIL}UDP Transfer #{transfer_id} error: {e}{Colors.ENDC}")
         finally:
             udp_socket.close()
 
